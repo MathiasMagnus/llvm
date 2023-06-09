@@ -1,3 +1,5 @@
+find_package(OpenCL CONFIG REQUIRED COMPONENTS Headers OpenCL)
+
 function(add_sycl_library LIB_NAME TYPE)
   cmake_parse_arguments("ARG"
     ""
@@ -50,7 +52,7 @@ function(add_sycl_plugin PLUGIN_NAME)
       ${sycl_inc_dir}
     LIBRARIES
       ${ARG_LIBRARIES}
-      OpenCL-Headers
+      OpenCL::Headers
   )
 
   # Install feature test header
