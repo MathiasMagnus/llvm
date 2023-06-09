@@ -113,12 +113,22 @@ set_target_properties(pi_hip PROPERTIES LINKER_LANGUAGE CXX)
 
 if("${SYCL_BUILD_PI_HIP_PLATFORM}" STREQUAL "AMD")
 
-  set_target_properties(
-    rocmdrv PROPERTIES
-      IMPORTED_LOCATION                    "${PI_HIP_LIB_DIR}/libamdhip64.so"
-      INTERFACE_INCLUDE_DIRECTORIES        "${HIP_HEADERS}"
-      INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${HIP_HEADERS}"
-  )
+  if(WIN32)
+    set_target_properties(
+      rocmdrv PROPERTIES
+        IMPORTED_IMPLIB                      "${PI_HIP_LIB_DIR}/amdhip64.lib"
+        IMPORTED_LOCATION                    "C:/Windows/System32/amdhip64.dll"
+        INTERFACE_INCLUDE_DIRECTORIES        "${HIP_HEADERS}"
+        INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${HIP_HEADERS}"
+    )
+  else()
+    set_target_properties(
+      rocmdrv PROPERTIES
+        IMPORTED_LOCATION                    "${PI_HIP_LIB_DIR}/libamdhip64.so"
+        INTERFACE_INCLUDE_DIRECTORIES        "${HIP_HEADERS}"
+        INTERFACE_SYSTEM_INCLUDE_DIRECTORIES "${HIP_HEADERS}"
+    )
+  endif()
   target_link_libraries(pi_hip PUBLIC rocmdrv)
 
   # Set HIP define to select AMD platform
