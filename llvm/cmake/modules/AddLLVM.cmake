@@ -1,3 +1,5 @@
+enable_language(C)
+
 include(GNUInstallDirs)
 include(LLVMDistributionSupport)
 include(LLVMProcessSources)
