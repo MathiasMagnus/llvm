@@ -26,6 +26,7 @@
   _PI_PLUGIN_VERSION_STRING(_PI_HIP_PLUGIN_VERSION)
 
 #include "sycl/detail/pi.h"
+#include <algorithm>
 #include <array>
 #include <atomic>
 #include <cassert>
