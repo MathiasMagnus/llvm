@@ -421,6 +421,7 @@ public:
     default:
       return CCCR_Warning;
     case CC_C:
+    case CC_X86VectorCall:
     case CC_OpenCLKernel:
     case CC_AMDGPUKernelCall:
       return CCCR_OK;
