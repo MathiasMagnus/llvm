@@ -11,10 +11,12 @@ endif()
 # Disable aspect::image warning.
 target_compile_definitions(sycl-ls PRIVATE SYCL_DISABLE_IMAGE_ASPECT_WARNING)
 
+find_package(OpenCL CONFIG REQUIRED COMPONENTS Headers OpenCL)
+
 target_link_libraries(sycl-ls
   PRIVATE
     ${sycl_lib}
-    OpenCL-Headers
+    OpenCL::Headers
 )
 install(TARGETS sycl-ls
   RUNTIME DESTINATION "bin" COMPONENT sycl-ls)

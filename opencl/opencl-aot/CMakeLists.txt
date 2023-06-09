@@ -19,5 +19,5 @@ endif()
 
 target_link_libraries(${OPENCL_AOT_PROJECT_NAME}
   PRIVATE
-    OpenCL-Headers
-    OpenCL-ICD)
+    OpenCL::Headers
+    OpenCL::OpenCL)

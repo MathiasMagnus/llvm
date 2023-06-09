@@ -136,12 +136,12 @@ endif()
 # Copy OpenCL Headers into sycl headers build directory
 # Compiler does automatic lookup bin/../include based on clang binary location,
 # e.g. when run LIT tests
-file(COPY ${OpenCL_INCLUDE_DIR}/CL
-     DESTINATION ${SYCL_INCLUDE_BUILD_DIR}/sycl)
+file(COPY "${OpenCL_INCLUDE_DIR}/CL"
+     DESTINATION "${SYCL_INCLUDE_BUILD_DIR}/sycl")
 
 # Include OpenCL Headers into final bundle.
-install(DIRECTORY ${OpenCL_INCLUDE_DIR}/CL
-        DESTINATION ${SYCL_INCLUDE_DIR}/sycl
+install(DIRECTORY "${OpenCL_INCLUDE_DIR}/CL"
+        DESTINATION "${SYCL_INCLUDE_DIR}/sycl"
         COMPONENT OpenCL-Headers)
 
 # Option to enable online kernel fusion via a JIT compiler

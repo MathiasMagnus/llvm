@@ -84,8 +84,8 @@ endif()
 
 target_compile_definitions(sycl_pi_trace_collector PRIVATE XPTI_CALLBACK_API_EXPORTS)
 target_link_libraries(sycl_pi_trace_collector PRIVATE xptifw)
-if (TARGET OpenCL-Headers)
-  target_link_libraries(sycl_pi_trace_collector PRIVATE OpenCL-Headers)
+if (TARGET OpenCL::Headers)
+  target_link_libraries(sycl_pi_trace_collector PRIVATE OpenCL::Headers)
 endif()
 
 target_include_directories(sycl_pi_trace_collector PRIVATE
